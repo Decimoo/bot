@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>paoj</title>
+	</head>
+	<body>
+		<?php
+			require_once '.PHPExcel-1.8/Classes/PHPExcel/IOFactory.php';
+			 
+			// Chargement du fichier Excel
+			$objPHPExcel = PHPExcel_IOFactory::load("Classeur1.xls");
+			 
+			/**
+			* récupération de la première feuille du fichier Excel
+			* @var PHPExcel_Worksheet $sheet
+			*/
+			$sheet = $objPHPExcel->getSheet(0);
+			 
+			echo '<table border="1">';
+			 
+
+			foreach($sheet->getRowIterator() as $row) {
+			 
+			   echo '<tr>';
+			 
+			   foreach ($row->getCellIterator() as $cell) 
+			   {
+				  echo '<td>';
+				  print_r($cell->getValue());
+				  echo '</td>';
+			   }
+			 
+			   echo '</tr>';
+			}
+			echo '</table>';
+		?>
+	</body>
+</html>

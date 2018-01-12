@@ -1,0 +1,6 @@
+{
+    "require": {
+        "slim/slim": "^3.9",
+        "recastai/sdk-php": "^3.1"
+    }
+}
